@@ -10,6 +10,7 @@ import (
 	"github.com/modeltool/conf"
 )
 
+// Generate 生成model
 func Generate(tableNames ...string) {
 	tableNamesStr := ""
 	for _, name := range tableNames {
@@ -57,12 +58,12 @@ func generateModel(table Table, fields []Field) {
 	//生成字段
 	for _, field := range fields {
 		fieldName := generator.CamelCase(field.Field)
-		fieldJson := getFieldJson(field)
+		fieldJSON := getFieldJSON(field)
 		fieldOrm := getFieldOrm(field)
 		fieldGconv := getFieldGconv(field)
 		fieldType := getFiledType(field)
 		fieldComment := getFieldComment(field)
-		content += "	" + fieldName + " " + fieldType + " `" + fieldGconv + " " + fieldJson + " " + fieldOrm + "` " + fieldComment + "\n"
+		content += "	" + fieldName + " " + fieldType + " `" + fieldGconv + " " + fieldJSON + " " + fieldOrm + "` " + fieldComment + "\n"
 	}
 	content += "}"
 
@@ -140,7 +141,7 @@ func getFiledType(field Field) string {
 }
 
 //获取字段json描述
-func getFieldJson(field Field) string {
+func getFieldJSON(field Field) string {
 	return `json:"` + field.Field + `"`
 }
 

@@ -2,9 +2,10 @@ package generate
 
 import (
 	"fmt"
+	"sync"
+
 	"github.com/jinzhu/gorm"
 	"github.com/modeltool/conf"
-	"sync"
 )
 
 var gdb *gorm.DB
@@ -35,9 +36,9 @@ func NewStore(db *gorm.DB) *Store {
 func initDb() *gorm.DB {
 	cfg := conf.GetConfig()
 	url := fmt.Sprintf("%v:%v@tcp(%v)/%v?charset=utf8&parseTime=True&loc=Local",
-		cfg.DataSource.User, cfg.DataSource.Password, cfg.DataSource.Addr, cfg.DataSource.Database)
+		cfg.User, cfg.Password, cfg.Addr, cfg.Database)
 	var err error
-	gdb, err = gorm.Open(cfg.DataSource.DriverName, url)
+	gdb, err = gorm.Open(cfg.DriverName, url)
 	if err != nil {
 		panic(err)
 		return nil
