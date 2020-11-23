@@ -1,0 +1,13 @@
+{
+  "data_source": {
+    "driver_name": "mysql",
+    "addr": "127.0.0.1:3306",
+    "database": "spot",
+    "user": "root",
+    "password": "ZZLq_:1234"
+  },
+  "config": {
+    "model_path": "./model/",
+    "model_replace": true
+  }
+}
