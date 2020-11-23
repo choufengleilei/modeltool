@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	//generate.Genertate() //生成所有表信息
-	generate.Genertate(
+	//generate.Generate() //生成所有表信息
+	generate.Generate(
 		"t_wallet_token_address")
 }

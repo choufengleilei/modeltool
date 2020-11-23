@@ -2,14 +2,15 @@ package generate
 
 import (
 	"fmt"
-	"github.com/golang/protobuf/protoc-gen-go/generator"
-	"github.com/modeltool/conf"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/golang/protobuf/protoc-gen-go/generator"
+	"github.com/modeltool/conf"
 )
 
-func Genertate(tableNames ...string) {
+func Generate(tableNames ...string) {
 	tableNamesStr := ""
 	for _, name := range tableNames {
 		if tableNamesStr != "" {
