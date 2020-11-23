@@ -2,11 +2,12 @@ package generate
 
 import (
 	"fmt"
-	"github.com/golang/protobuf/protoc-gen-go/generator"
-	"github.com/modeltool/conf"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/golang/protobuf/protoc-gen-go/generator"
+	"github.com/modeltool/conf"
 )
 
 // Generate 生成model
