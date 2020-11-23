@@ -2,9 +2,9 @@
   "data_source": {
     "driver_name": "mysql",
     "addr": "127.0.0.1:3306",
-    "database": "spot",
+    "database": "token_bank",
     "user": "root",
-    "password": "ZZLq_:1234"
+    "password": "As.-*123456"
   },
   "config": {
     "model_path": "./model/",

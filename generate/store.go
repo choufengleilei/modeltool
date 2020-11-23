@@ -2,10 +2,10 @@ package generate
 
 import (
 	"fmt"
-	"sync"
-
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/modeltool/conf"
+	"sync"
 )
 
 var gdb *gorm.DB
@@ -33,7 +33,7 @@ func NewStore(db *gorm.DB) *Store {
 	}
 }
 
-func initDb() *gorm.DB {
+func initDb() error {
 	cfg := conf.GetConfig()
 	url := fmt.Sprintf("%v:%v@tcp(%v)/%v?charset=utf8&parseTime=True&loc=Local",
 		cfg.User, cfg.Password, cfg.Addr, cfg.Database)
@@ -44,5 +44,5 @@ func initDb() *gorm.DB {
 		return nil
 	}
 	gdb.SingularTable(true)
-	return gdb
+	return nil
 }
