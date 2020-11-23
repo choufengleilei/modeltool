@@ -12,8 +12,9 @@ type DbConfig struct {
 }
 
 type Config struct {
-	ModelPath    string `json:"model_path"`
-	ModelReplace bool   `json:"model_replace"`
+	ModelPath        string   `json:"model_path"`
+	ModelReplace     bool     `json:"model_replace"`
+	FieldFormatTypes []string `json:"field_format_types"`
 }
 
 type DataSourceConfig struct {

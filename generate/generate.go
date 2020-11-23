@@ -57,12 +57,10 @@ func generateModel(table Table, fields []Field) {
 	//生成字段
 	for _, field := range fields {
 		fieldName := generator.CamelCase(field.Field)
-		fieldJSON := getFieldJSON(field)
-		fieldOrm := getFieldOrm(field)
-		fieldGconv := getFieldGconv(field)
 		fieldType := getFiledType(field)
+		fieldFormatType := getFieldFormatType(field)
 		fieldComment := getFieldComment(field)
-		content += "	" + fieldName + " " + fieldType + " `" + fieldGconv + " " + fieldJSON + " " + fieldOrm + "` " + fieldComment + "\n"
+		content += "	" + fieldName + " " + fieldType + " " + fieldFormatType + " " + fieldComment + "\n"
 	}
 	content += "}"
 
@@ -150,6 +148,18 @@ func getFieldOrm(field Field) string {
 
 func getFieldGconv(field Field) string {
 	return `gconv:"` + field.Field + `"`
+}
+
+func getFieldFormatType(field Field) string {
+	var fieldFormatType string
+	for i, v := range conf.GetConfig().FieldFormatTypes {
+		if i == len(conf.GetConfig().FieldFormatTypes)-1 {
+			fieldFormatType += fmt.Sprintf("%v:\"%v\"", v, field.Field)
+		} else {
+			fieldFormatType += fmt.Sprintf("%v:\"%v\" ", v, field.Field)
+		}
+	}
+	return fmt.Sprintf("`%v`", fieldFormatType)
 }
 
 //获取字段说明
