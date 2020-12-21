@@ -7,5 +7,5 @@ import (
 func main() {
 	//generate.Generate() //生成所有表信息
 	generate.Generate(
-		"t_wallet_token_address")
+		"t_swap_order")
 }

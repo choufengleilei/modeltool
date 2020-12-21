@@ -10,7 +10,6 @@
     "model_path": "/Users/leilei/gopath/src/github.com/modeltool/model/",
     "model_replace": true,
     "field_format_types": [
-      "orm",
       "json"
     ]
   }
